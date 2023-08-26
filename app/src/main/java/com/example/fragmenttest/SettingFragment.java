@@ -30,6 +30,7 @@ public class SettingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button btnRatting = view.findViewById(R.id.btn_ratting);
+        Button btnAbout = view.findViewById(R.id.btn_about);
 
         btnRatting.setOnClickListener(v->{
             // 使用 FragmentManager 和 FragmentTransaction 替換 Fragment
@@ -40,12 +41,21 @@ public class SettingFragment extends Fragment {
             fragmentTransaction.commit();
         });
 
-        // Adding custom back pressed action
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                Toast.makeText(getContext(), "Quit?", Toast.LENGTH_SHORT).show();
-            }
+        btnAbout.setOnClickListener(v->{
+            // 使用 FragmentManager 和 FragmentTransaction 替換 Fragment
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentContainerView, new AboutFragment());
+            fragmentTransaction.addToBackStack(null);  // 如果需要支持返回到上一個 Fragment
+            fragmentTransaction.commit();
         });
+
+//        // Adding custom back pressed action
+//        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+//            @Override
+//            public void handleOnBackPressed() {
+//                Toast.makeText(getContext(), "Quit?", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 }

@@ -27,14 +27,14 @@ public class RattingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Adding custom back pressed action
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                // 使用 FragmentManager 來回到上一個 Fragment
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.popBackStack();
-            }
-        });
+//        // Adding custom back pressed action
+//        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+//            @Override
+//            public void handleOnBackPressed() {
+//                // 使用 FragmentManager 來回到上一個 Fragment
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                fragmentManager.popBackStack();
+//            }
+//        });
     }
 }
